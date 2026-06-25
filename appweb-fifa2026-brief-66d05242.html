@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>2026 世界杯 · 竞逐新潮</title>
+  <style>
+    /* reset & base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f0f6f8;
+      color: #1e2b32;
+      line-height: 1.65;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page {
+      max-width: 880px;
+      width: 100%;
+    }
+
+    /* typography */
+    h1, h2, h3 { font-weight: 500; letter-spacing: -0.01em; }
+    h1 {
+      font-size: 2.3rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: #064d58;
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid #1f9b9e;
+      padding-left: 1rem;
+      color: #064d58;
+    }
+    .lead {
+      font-size: 1.2rem;
+      color: #2f4f5b;
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+      border-bottom: 1px solid #c6dce0;
+      padding-bottom: 1rem;
+    }
+    p { margin-bottom: 1.2rem; }
+
+    /* card grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0 2.5rem 0;
+    }
+    .card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.4rem 1.2rem;
+      box-shadow: 0 4px 12px rgba(6, 77, 88, 0.06);
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+    .card:hover {
+      border-color: #81c4c7;
+      box-shadow: 0 8px 20px rgba(6, 77, 88, 0.08);
+      transform: translateY(-2px);
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #11646f;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .card h3::before {
+      content: "⚽";
+      font-size: 1.1rem;
+      color: #1f9b9e;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #2f4f5b;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* inline link */
+    a {
+      color: #0f7d82;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b0d6d9;
+      font-weight: 500;
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+    a:hover {
+      color: #033b44;
+      text-decoration-color: #1f9b9e;
+    }
+
+    /* subtle callout */
+    .note-box {
+      background: linear-gradient(145deg, #daeff2, #ecf7f9);
+      border-radius: 1.8rem;
+      padding: 1.6rem 2rem;
+      margin: 2rem 0 2rem 0;
+      border-left: 6px solid #1f9b9e;
+      color: #173f49;
+    }
+    .note-box p:last-child { margin-bottom: 0; }
+
+    /* faq summary */
+    .faq-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2.5rem 0 1rem 0;
+    }
+    .faq-item {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 0.9rem 1.4rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      border: 1px solid #d2e5e8;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #064d58;
+      margin-bottom: 0.25rem;
+    }
+    .faq-item p {
+      margin: 0.2rem 0 0 0;
+      font-size: 0.95rem;
+      color: #2c4b57;
+    }
+
+    /* footer */
+    .footer-note {
+      margin-top: 3.5rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #cde1e5;
+      font-size: 0.9rem;
+      color: #3b6670;
+      text-align: center;
+    }
+
+    /* mobile fine-tune */
+    @media (max-width: 500px) {
+      body { padding: 1.5rem 0.8rem; }
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      .lead { font-size: 1rem; }
+      .card-grid { grid-template-columns: 1fr; }
+      .note-box { padding: 1.2rem 1.2rem; }
+    }
+
+    @media (min-width: 600px) {
+      .hero-slim { padding-right: 2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 开篇短句：具象场景 -->
+  <div class="hero-slim">
+    <h1>球场之外，秩序之中</h1>
+    <div class="lead">
+      一届赛事的生命力不止于九十分钟内的对抗，还在于信息如何流动、数据怎样聚合，以及球迷如何与赛程、阵容、历史产生即时连接。<br>
+      从巴尔的摩到瓜达拉哈拉，<a href="https://appweb-fifa2026.com">世界杯</a>的版图正被重新书写。
+    </div>
+  </div>
+
+  <!-- 承接段落：从关键词到主题纵深 -->
+  <p>
+    2026年的夏天，48支球队将横跨北美三国的16座球场。赛程密度、时区跨度与阵容深度，共同制造了前所未有的信息复杂度。无论是追踪一支黑马的晋级曲线，还是回溯一场经典交锋的技战术细节，整合与检索的效率决定了观赛体验的层次。竞技体育的魅力不止于激情，更在于理解——这正是内容平台需要承载的深层价值。
+  </p>
+  <p>
+    围绕<a href="https://appweb-fifa2026.com">世界杯</a>展开的数字化服务，早已跳脱出单纯的赛程展示。它需要提供结构化的数据网络：球队的战术倾向、球员的热区分布、历史交锋的隐性规律。这些信息彼此勾连，构成一种可被探索的叙事。
+  </p>
+
+  <!-- 特点列表：网格卡片 (六个特征) -->
+  <div class="card-grid">
+    <div class="card">
+      <h3>赛程多维视图</h3>
+      <p>按日期、分组、球场、时区灵活切换，同一赛事可呈现四种时间线。</p>
+    </div>
+    <div class="card">
+      <h3>阵容动态演化</h3>
+      <p>伤病、轮换、停赛实时更新，首发预测模型参考了历史轮换模式。</p>
+    </div>
+    <div class="card">
+      <h3>技术统计分层</h3>
+      <p>控球率、预期进球、传球网络等 30+ 维度，支持自定义对比时段。</p>
+    </div>
+    <div class="card">
+      <h3>历史数据回溯</h3>
+      <p>1930 年至今所有决赛圈记录，球队、球员、裁判、球场全关联索引。</p>
+    </div>
+    <div class="card">
+      <h3>跨平台同步</h3>
+      <p>收藏赛程、笔记高亮、对比列表在设备间无缝衔接，无需重复设置。</p>
+    </div>
+    <div class="card">
+      <h3>赛事地图导览</h3>
+      <p>整合城市、球场、交通、住宿信息，为远征球迷提供实用规划参考。</p>
+    </div>
+  </div>
+
+  <!-- 温和的 callout / 场景提示 -->
+  <div class="note-box">
+    <p><strong>场景示例</strong> · 一位内容创作者正在撰写“E 组出线形势分析”。她需要同时查看四支球队的近五场友谊赛数据、核心球员的跑动热图，以及不同赛果下的晋级概率。她打开<a href="https://appweb-fifa2026.com">世界杯</a>数据面板，将以上模块拖入同一个对比视窗，十分钟后初稿完成。工具的价值，藏在这些不被觉察的流畅里。</p>
+  </div>
+
+  <!-- FAQ 摘要 (三个务实问题) -->
+  <h2>常见问题摘要</h2>
+  <div class="faq-group">
+    <div class="faq-item">
+      <strong>数据更新频率是怎样的？</strong>
+      <p>比赛期间，核心统计（比分、控球、射门、红黄牌）延迟不超过 90 秒；深度数据（预期进球、阵型图）在每半场结束后 5 分钟内更新。</p>
+    </div>
+    <div class="faq-item">
+      <strong>是否需要注册才能使用？</strong>
+      <p>浏览赛程、球队资料、基础统计无需任何账户。收藏、笔记与高级对比功能需要免费注册，以保存个性化配置。</p>
+    </div>
+    <div class="faq-item">
+      <strong>移动端适配情况如何？</strong>
+      <p>采用响应式设计，手机浏览器与平板均可获得完整功能。建议在 iOS Safari 或 Android Chrome 上使用以获得最佳体验。</p>
+    </div>
+  </div>
+
+  <!-- 温和结尾 -->
+  <p style="margin-top: 2rem;">
+    信息架构的意义在于降低认知摩擦。当一届<a href="https://appweb-fifa2026.com">世界杯</a>的复杂度被有序梳理，球迷得以将更多精力投入到真正的享受中：预测、争论、回味、期待。2026 年，我们与你一同在场边，也在数据之中。
+  </p>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    理性观赛 · 数据为伴 · 2026
+  </div>
+
+</div>
+</body>
+</html>
