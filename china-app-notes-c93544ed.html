@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>故事的开端 · 关于世界杯的叙述</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', 'Songti SC', serif;
+      background-color: #f9f7f4;
+      color: #1e1e1e;
+      line-height: 1.8;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: #0f0f10;
+      background-image: radial-gradient(circle at 30% 40%, #2b2b30 0%, #0b0b0c 90%);
+      color: #eae6df;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255, 215, 0, 0.02) 40px,
+        rgba(255, 215, 0, 0.02) 80px
+      );
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #c8c0b0;
+      max-width: 600px;
+      margin: 1rem auto 0;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 浅色正文区 */
+    .content {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 4rem;
+      flex: 1;
+    }
+
+    .story-intro {
+      font-size: 1.15rem;
+      margin-bottom: 2.2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #dad5cc;
+    }
+
+    .story-intro p {
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem 1.5rem;
+      margin: 2.5rem 0 3rem;
+    }
+
+    .feature-item {
+      background: #ffffff;
+      padding: 1.5rem 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border-left: 4px solid #b8860b;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .feature-item:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    }
+
+    .feature-item h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: #2d2d2d;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #4a4a4a;
+    }
+
+    /* 强调色用于链接 */
+    a {
+      color: #b8860b;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a:hover {
+      color: #8b6914;
+      border-bottom-color: #b8860b;
+    }
+
+    .closing-note {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #dad5cc;
+      font-size: 1rem;
+      color: #3a3a3a;
+    }
+
+    .closing-note p {
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-mini {
+      background: #f2efe9;
+      padding: 1.8rem 2rem;
+      border-radius: 14px;
+      margin: 2.8rem 0 1.8rem;
+    }
+
+    .faq-mini h4 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #1e1e1e;
+    }
+
+    .faq-mini .qa {
+      margin-bottom: 0.9rem;
+    }
+
+    .faq-mini .q {
+      font-weight: 500;
+    }
+
+    .faq-mini .a {
+      color: #4f4f4f;
+      margin-top: 0.2rem;
+    }
+
+    .footer-meta {
+      text-align: center;
+      padding: 2rem 1rem 1.5rem;
+      font-size: 0.85rem;
+      color: #7b756b;
+      border-top: 1px solid #e2ddd4;
+      background: #f9f7f4;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 3.5rem 1rem 3rem;
+      }
+      .content {
+        padding: 2rem 1rem 3rem;
+      }
+      .feature-grid {
+        gap: 1.2rem;
+      }
+      .faq-mini {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>那一年，整个夏天都在谈论同一件事</h1>
+    <p class="sub">有人收集球衣，有人熬夜看球，有人只是安静地等待一场比赛开始。</p>
+  </section>
+
+  <div class="content">
+    <div class="story-intro">
+      <p>
+        有些记忆并不需要刻意保存。比如某场雨中的进球，比如大巴车窗外闪过的旗帜，比如朋友发来一条消息说“刚才那个球太不可思议了”。<a href="https://china-app-fifa2026.com">世界杯</a>从来不止是赛场上的九十分钟——它像一段固定的节拍，每隔四年就会在世界各个角落响起。
+      </p>
+      <p>
+        2026 年的夏天尚未到来，但空气里已经有了某种熟悉的预兆。无论你身在何处，总能找到一种方式，和周围人一起等待那声哨响。足球是圆的，故事也是。
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>球场的回声</h3>
+        <p>草皮上的脚步声、看台上的合唱、解说员沙哑的嗓音——这些声音会在赛后很久仍然在耳畔回荡。</p>
+      </div>
+      <div class="feature-item">
+        <h3>陌生的城市，熟悉的夜晚</h3>
+        <p>时差让一些人凌晨醒来，也让一些人在午休时偷偷刷新比分。城市总会在某个时刻安静下来。</p>
+      </div>
+      <div class="feature-item">
+        <h3>那些不被记住的瞬间</h3>
+        <p>不是每个镜头都会成为经典，但每个传球、每次扑救、每张表情，都构成了一届杯赛真实的纹理。</p>
+      </div>
+    </div>
+
+    <div class="faq-mini">
+      <h4>一些零散的问答</h4>
+      <div class="qa">
+        <div class="q">问：为什么我们总在期待下一届？</div>
+        <div class="a">也许因为足球允许我们短暂地离开日常，又让我们在欢呼或叹息中重新找到彼此。</div>
+      </div>
+      <div class="qa">
+        <div class="q">问：需要懂战术才能看球吗？</div>
+        <div class="a">不需要。最好的看球方式就是坐在屏幕前，或者和朋友们一起，让比赛自己告诉你一切。</div>
+      </div>
+    </div>
+
+    <div class="closing-note">
+      <p>
+        四年一个轮回。2026 年，北美大陆将再次铺开绿茵场。你可以提前关注那片赛程的轮廓，也可以在某个普通的晚上，打开页面，看看那支你最熟悉的球队走到了哪里。
+      </p>
+      <p>
+        也许你会找到那个夏天属于自己的坐标。毕竟，每一届<a href="https://china-app-fifa2026.com">世界杯</a>都像一场漫长的对话——你总能听见自己想听的部分。
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-meta">
+    <span>· 关于足球 · 关于等待 · 关于夏天 ·</span>
+  </div>
+</body>
+</html>
