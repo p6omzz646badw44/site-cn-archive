@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 信息卡片｜赛事介绍</title>
+    <style>
+        /* 全局重置与米白基调 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f7f2;  /* 米白底 */
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .page-wrapper {
+            max-width: 880px;
+            margin: 0 auto;
+            background: #fefcf8;
+            border-radius: 22px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03), 0 4px 12px rgba(0, 0, 0, 0.02);
+            padding: 2.4rem 2rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            color: #3a362f;
+            border-left: 5px solid #c7a86b;
+            padding-left: 1.2rem;
+            margin-bottom: 1.6rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #4b443a;
+            margin-top: 2rem;
+            margin-bottom: 0.9rem;
+            border-bottom: 1px dashed #ddd6cb;
+            padding-bottom: 0.3rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #3d3731;
+        }
+
+        a {
+            color: #7f5f3a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: background 0.2s ease;
+        }
+
+        a:hover {
+            background-color: #ece3d7;
+            text-decoration: none;
+        }
+
+        /* 卡片群组 —— 用途 & 人群 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.8rem 0;
+        }
+
+        .card {
+            background: #f6f2ea;
+            border-radius: 16px;
+            padding: 1.4rem 1.3rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #4f463b;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #4b4139;
+            margin-bottom: 0.3rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0.2rem;
+            margin-top: 0.4rem;
+        }
+
+        .card li {
+            position: relative;
+            padding-left: 1.1rem;
+            margin-bottom: 0.2rem;
+            font-size: 0.92rem;
+        }
+
+        .card li::before {
+            content: "▪";
+            color: #b39466;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 引用块 / 提示框 */
+        .quote-block {
+            background: #f0ebe0;
+            border-left: 6px solid #c7a86b;
+            padding: 1.2rem 1.5rem;
+            margin: 1.8rem 0;
+            border-radius: 0 14px 14px 0;
+            font-style: italic;
+            color: #3f3a32;
+        }
+
+        .quote-block strong {
+            font-style: normal;
+            font-weight: 600;
+            color: #5b4c38;
+        }
+
+        .note-box {
+            background: #f3efe6;
+            border: 1px solid #d6cfc0;
+            border-radius: 20px;
+            padding: 1.2rem 1.5rem;
+            margin: 1.2rem 0;
+            color: #3c352d;
+            font-size: 0.96rem;
+        }
+
+        .note-box strong {
+            font-weight: 600;
+            color: #6d5c46;
+        }
+
+        /* 主视觉区域（hero 替代） */
+        .hero-vibe {
+            background: #efe9db;
+            padding: 1.6rem 2rem;
+            border-radius: 28px;
+            margin: 0.6rem 0 1.8rem 0;
+            text-align: center;
+            border: 1px solid #e0d6c4;
+        }
+
+        .hero-vibe p {
+            font-size: 1.15rem;
+            color: #3f392f;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-vibe .small-note {
+            font-size: 0.9rem;
+            color: #6f6558;
+            margin-top: 0.6rem;
+            border-top: 1px dotted #cfc2af;
+            padding-top: 0.7rem;
+            display: inline-block;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #faf7f1;
+            border-radius: 16px;
+            padding: 0.8rem 1.2rem;
+            margin-top: 1.6rem;
+            border: 1px solid #e4dccc;
+        }
+
+        .faq-mini details {
+            margin: 0.3rem 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #4d4439;
+            padding: 0.4rem 0;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #aa8f68;
+        }
+
+        .faq-mini p {
+            font-size: 0.93rem;
+            padding-left: 1.2rem;
+            margin: 0.2rem 0 0.6rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dad2c1;
+            margin: 1.8rem 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page-wrapper {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 1.7rem;
+                padding-left: 0.8rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .hero-vibe {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 主视觉（没有大图，以文字氛围为主） -->
+    <div class="hero-vibe">
+        <p>世界杯 · 四年一度的绿茵盛会，牵动数十亿人的目光。<br>从小组循环到淘汰加时，每一帧都是故事。</p>
+        <span class="small-note">信息卡片 · 整理自公开资料</span>
+    </div>
+
+    <h1>关于世界杯：背景与信息</h1>
+
+    <p>
+        世界杯足球赛（FIFA World Cup）是全球规模最大、影响最广的单项体育赛事。
+        自1930年首届在乌拉圭举办以来，<strong>每四年一届</strong>，汇聚各大洲顶尖球队。
+        2026年将由美国、加拿大、墨西哥联合主办，届时参赛队伍将扩军至48支，赛制与格局焕然一新。
+    </p>
+
+    <p>
+        谈到这项赛事，人们常想到马拉卡纳的欢呼、伯纳乌的眼泪，或是那些逆转与点球大战的瞬间。
+        但世界杯的价值不止于竞技——它也是一面镜子，照见不同文化、战术哲学与民族情感的交汇。
+        无论你是资深球迷，还是偶尔关注的路人，总能从中找到共鸣。
+    </p>
+
+    <!-- 用途卡片 + 适合人群（并排卡片） -->
+    <h2>赛事信息卡片</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>📋 用途与场景</h3>
+            <p>了解世界杯赛程、历史、球队动态；适合赛前预习、赛后回顾、知识整理。</p>
+            <ul>
+                <li>完整赛历与主办城市概览</li>
+                <li>历届冠军、经典对决数据</li>
+                <li>最新积分榜与出线形势</li>
+                <li>战术分析、球员档案</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>👥 适合这类人</h3>
+            <ul>
+                <li>想要快速熟悉2026世界杯的观望者</li>
+                <li>寻找深度内容的老球迷</li>
+                <li>体育编辑、播客撰稿人</li>
+                <li>课堂分享、社团活动组织者</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 引用块（类似摘录） -->
+    <div class="quote-block">
+        <strong>专栏摘录 ·</strong> “世界杯是少数能让陌生人瞬间有共同话题的事。无论是巴阿大战还是冷门黑马，聊起来总能眉飞色舞。这份整理，也是献给那些熬夜看球、第二天还要上班的普通人。”
+    </div>
+
+    <!-- 自然链接段落（注意：a标签可见文本严格等于“世界杯”，且无“进入、点击”等词） -->
+    <p>
+        如果你想查阅更完整的赛事资料、赛程日历或球队介绍，可以访问 
+        <a href="https://appwap-fifa2026.com">世界杯</a> 
+        信息站点，里面按时间线整理了2026年各阶段的重要节点，以及历届数据对比。
+        页面结构清晰，适合手机端与桌面端快速浏览。
+    </p>
+
+    <p>
+        另外，部分足球论坛和统计网站也会引用上述站点的内容来制作观赛指南。
+        许多球迷习惯在比赛前打开 
+        <a href="https://appwap-fifa2026.com">世界杯</a> 
+        页面，确认开球时间和转播平台，这已经成为他们每周的固定动作。
+    </p>
+
+    <!-- 提示框 / 附注 -->
+    <div class="note-box">
+        <strong>📌 小提示：</strong> 2026世界杯将横跨16个主办城市，时区跨度大。建议提前收藏赛程页面，并留意所在地区与比赛地的时差。部分场地海拔较高，可能影响球员体能——这也是看点之一。
+    </div>
+
+    <!-- FAQ 摘要（折叠形式） -->
+    <h2>常见疑问 · 简答</h2>
+    <div class="faq-mini">
+        <details>
+            <summary>2026年世界杯赛制有哪些变化？</summary>
+            <p>参赛队从32支扩军至48支，小组赛分为16个小组（每组3队），前两名晋级32强淘汰赛。总场次从64场增加到80场。</p>
+        </details>
+        <details>
+            <summary>主办城市有哪些？</summary>
+            <p>共16个城市：西雅图、旧金山、洛杉矶、温哥华、埃德蒙顿、堪萨斯城、达拉斯、休斯顿、亚特兰大、迈阿密、波士顿、费城、纽约/新泽西、墨西哥城、瓜达拉哈拉、蒙特雷（以最终官方公布为准）。</p>
+        </details>
+        <details>
+            <summary>哪里可以获取实时赛程和积分？</summary>
+            <p>许多体育平台和赛事聚合站都会提供数据流。<a href="https://appwap-fifa2026.com">世界杯</a> 页面也整理了官方赛历和晋级图，更新频率较高。</p>
+        </details>
+    </div>
+
+    <hr>
+
+    <p style="font-size:0.9rem; color:#77705f; text-align:center; margin-top:0.8rem;">
+        信息整理 · 仅供个人参考 &nbsp;|&nbsp; 世界杯相关数据以官方发布为准
+    </p>
+
+</div>
+</body>
+</html>
